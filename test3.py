@@ -1,2 +1,0 @@
-print("Runescape is mid")
-

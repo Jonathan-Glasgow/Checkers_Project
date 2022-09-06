@@ -9,7 +9,6 @@ from .constants import *
 class Board:
     def __init__(self):
         self.board = [] #Stores piece objects in a 2-d array
-        self.selected_piece = None
         self.red_left = self.white_left = 12 #How many red and white pieces are left?
         self.red_kings = self.white_kings = 0 #init. kings
         self.create_board()
@@ -81,7 +80,7 @@ class Board:
         self.board[piece.row][piece.col], self.board[row][col] = self.board[row][col], self.board[piece.row][piece.col]
         piece.move(row, col)
         
-        if row == ROWS or row == 0: #this doesn't break the game because it only hits if you do a move
+        if row == ROWS - 1 or row == 0: #this doesn't break the game because it only hits if you do a move
             piece.make_king()
             if piece.color == WHITE:
                 self.white_kings += 1
